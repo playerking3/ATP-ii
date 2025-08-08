@@ -6,25 +6,20 @@
 
 // eu sei que tem uma forma bem mais otimizada de gerar numeros primos, porem prefiro não queimar tantos neuronios na terceira atividade da lista...
 int geraPrimo(ordem){
-    int primo = 0;
-    for(int i = 0; i <ordem; i++){
-        int contador = 0;
-        int multiplo = 1;
-        for(int j = primo+1; j <=10; j++){
-
-            if(j%multiplo == 0){
-                contador++;
-            }
-            if(contador == 2 && j == multiplo){
-                primo = j;
-                break;
-            }
-            printf("%d - %d\n", j,multiplo);
-            multiplo += 1;
+    int index = 0 ,primo = 2, multiplo = 2;
+    while(index < ordem){
+        if(primo%multiplo == 0 && primo > multiplo){
+            primo +=1;
+            multiplo = 2;
+        }else if(primo%multiplo == 0 && primo == multiplo){
+            index +=1;
+            primo +=1;
+            multiplo = 2;
+        }else{
+            multiplo +=1;
         }
-
     }
-    return primo;
+    return primo-1;
 }
 
 void lerLista(int lista[]){
