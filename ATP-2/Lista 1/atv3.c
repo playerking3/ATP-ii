@@ -1,11 +1,10 @@
 #include<stdio.h>
-#include<math.h>
 
 #define TAMANHO 7
 
 
 // eu sei que tem uma forma bem mais otimizada de gerar numeros primos, porem prefiro não queimar tantos neuronios na terceira atividade da lista...
-int geraPrimo(ordem){
+int geraPrimo(int ordem){
     int index = 0 ,primo = 2, multiplo = 2;
     while(index < ordem){
         if(primo%multiplo == 0 && primo > multiplo){
