@@ -2,11 +2,12 @@
 #define TAMANHO 6
 
 float calculaMedia(float lista[]){
-    float soma, result;
+    float soma = 0, result;
     for(int i = 0; i < TAMANHO; i++){
         soma += lista[i];
     }
     result = soma/TAMANHO;
+    return result;
 }
 
 int main(){
