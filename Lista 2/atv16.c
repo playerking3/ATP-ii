@@ -39,7 +39,7 @@ int main(){
 
     for(int i = 0; i < COLS; i++){
         for(int j = 0; j < LINS; j++){
-            printf(" %d         ", matriz1[i][j]);
+            printf(" %d ", matriz1[i][j]);
         }
         printf("\n");
     }
