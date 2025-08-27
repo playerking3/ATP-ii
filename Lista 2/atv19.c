@@ -5,10 +5,10 @@
 #define LINS 3
 
 void multMatriz(int **m1,int **m2,int **result){
-    for(int i = 0; i < LINS; i++){
-        for(int j = 0; j < LINS; j++){
+    for(int i = 0; i < COLS; i++){
+        for(int j = 0; j < COLS; j++){
             result[i][j]=0;
-            for(int k = 0; k < COLS; k++){
+            for(int k = 0; k < LINS; k++){
                 result[i][j] += m1[i][k]*m2[k][j];
             }
         }
@@ -48,7 +48,6 @@ int main(){
 
     for(int i = 0; i < COLS; i++){
         free(matriz1[i]);
-        free(matriz2[i]);
         free(result[i]);
     }
 
