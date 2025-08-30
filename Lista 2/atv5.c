@@ -6,7 +6,7 @@
 
 void transpMatriz(int **m1, int **transposta){
     for(int i = 0; i < COLS; i++){
-        for(int j = 0; i < LINS; i++){
+        for(int j = 0; j < LINS; j++){
             transposta[j][i] = m1[i][j];
         }
     }

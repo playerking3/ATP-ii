@@ -4,21 +4,17 @@
 #define COLS 3
 #define LINS 3
 
-int verificaIdentidade(int **m1){
+void multiplicaEscalar(int **m1,int escalar){
     for(int i = 0; i < COLS; i++){
         for(int j = 0; j < LINS; j++){
-            if(m1[i][j] != 0 && i != j){
-                return 0;
-            }else if(m1[i][j] != 1 && i == j){
-                return 0;
-            }
+            m1[i][j] = m1[i][j] * escalar;
         }
     }
-    return 1;
+
 }
 
 int main(){
-    int **matriz1;
+    int **matriz1, escalar;
 
     matriz1 = malloc(COLS * sizeof(int*));
 
@@ -28,12 +24,17 @@ int main(){
             scanf("%d", &matriz1[i][j]);
         }
     }
+    scanf("%d",&escalar);
 
-    if(verificaIdentidade(matriz1)== 1){
-        printf("eh identidade");
-    }else{
-        printf("nao eh identidade");
+    multiplicaEscalar(matriz1, escalar);
+
+    for(int i = 0; i < COLS; i++){
+        for(int j = 0; j < LINS; j++){
+            printf(" %d ", matriz1[i][j]);
+        }
+        printf("\n");
     }
+
 
     for(int i = 0; i < COLS; i++){
         free(matriz1[i]);
@@ -41,3 +42,5 @@ int main(){
     free(matriz1);
     return 0;
 }
+
+
