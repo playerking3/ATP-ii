@@ -1,20 +1,23 @@
 #include<stdio.h>
 #include<stdlib.h>
 
-#define COLS 3
-#define LINS 3
+#define COLS 4
+#define LINS 4
 
-void multiplicaEscalar(int **m1,int escalar){
+float calcMedia(int **m1){
+    int soma = 0;
+    float media;
     for(int i = 0; i < COLS; i++){
         for(int j = 0; j < LINS; j++){
-            m1[i][j] = m1[i][j] * escalar;
+            soma += m1[i][j];
         }
     }
-
+    media = (float) soma/(COLS*LINS);
+    return media;
 }
 
 int main(){
-    int **matriz1, escalar;
+    int **matriz1;
 
     matriz1 = malloc(COLS * sizeof(int*));
 
@@ -24,17 +27,8 @@ int main(){
             scanf("%d", &matriz1[i][j]);
         }
     }
-    scanf("%d",&escalar);
 
-    multiplicaEscalar(matriz1, escalar);
-
-    for(int i = 0; i < COLS; i++){
-        for(int j = 0; j < LINS; j++){
-            printf(" %d ", matriz1[i][j]);
-        }
-        printf("\n");
-    }
-
+    printf("%f", calcMedia(matriz1));
 
     for(int i = 0; i < COLS; i++){
         free(matriz1[i]);
@@ -42,4 +36,6 @@ int main(){
     free(matriz1);
     return 0;
 }
+
+
 
